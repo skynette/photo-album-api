@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'photos',
 ]
 
 MIDDLEWARE = [
@@ -127,8 +129,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static/'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static/')
 
 MEDIA_URLS ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -146,7 +149,7 @@ CLOUDINARY_STORAGE = {
 }
 
 cloudinary.config(
-   cloud_name=CLOUDINARY_STORAGE[os.getenv('CLOUD_NAME')],
-   api_key=CLOUDINARY_STORAGE[os.getenv('API_KEY')],
-   api_secret=CLOUDINARY_STORAGE[os.getenv('API_SECRET')]
+   cloud_name=CLOUDINARY_STORAGE['CLOUD_NAME'],
+   api_key=CLOUDINARY_STORAGE['API_KEY'],
+   api_secret=CLOUDINARY_STORAGE['API_SECRET']
 )

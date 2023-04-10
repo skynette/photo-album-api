@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-import zcore.views as views
+import photos.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
