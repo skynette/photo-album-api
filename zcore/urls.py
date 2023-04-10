@@ -18,10 +18,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 import photos.views as views
+from . import views as core_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/upload/', views.image_list_create_view, name='upload'),
+    path('', core_views.home, name='home'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
